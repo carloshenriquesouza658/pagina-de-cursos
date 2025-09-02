@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Indicações do Carlos – Cursos & Produtos</title>
+  <meta name="description" content="Cursos e produtos selecionados pelo Carlos Henrique. Clique e acesse com meu link de afiliado." />
+  <meta name="theme-color" content="#0b1020" />
+
+  <style>
+    :root{
+      --bg:#0b1020;
+      --panel:#0f172a;
+      --muted:#9aa4b2;
+      --text:#eef2ff;
+      --brand:#22c55e;
+      --brand-2:#60a5fa;
+      --ring: rgba(96,165,250,.35);
+      --shadow: 0 10px 25px rgba(0,0,0,.35);
+      --radius: 16px;
+      --cta-height: 44px;
+      --cta-min-width: 220px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;padding:0}
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Helvetica, Arial;
+      background:
+        radial-gradient(1200px 800px at 80% -200px, rgba(96,165,250,.08), transparent 60%),
+        radial-gradient(1000px 800px at 10% -250px, rgba(34,197,94,.08), transparent 60%),
+        var(--bg);
+      background-color: var(--bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      min-height:100vh;
+      line-height:1.6;
+      padding:28px 16px;
+    }
+
+    .container{max-width:1100px;margin:0 auto}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.00));border:1px solid rgba(255,255,255,.06);border-radius:var(--radius);box-shadow:var(--shadow)}
+    .header{display:flex;gap:18px;align-items:center;padding:18px}
+    .avatar{width:96px;height:96px;border-radius:50%;border:2px solid rgba(255,255,255,.12);object-fit:cover;flex-shrink:0}
+    .title-block{flex:1}
+    .title{font-size:1.25rem;font-weight:800;margin:0}
+    .subtitle{margin:6px 0 0;color:var(--muted);font-size:.95rem}
+    .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .badge{padding:6px 10px;border-radius:999px;font-size:.85rem;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);color:var(--muted)}
+
+    .grid{display:grid;gap:18px}
+    @media (min-width:720px){
+      .grid-3{grid-template-columns:repeat(3,1fr)}
+      .grid-2{grid-template-columns:repeat(2,1fr)}
+    }
+
+    .item{position:relative;overflow:hidden;border-radius:12px;border:1px solid rgba(255,255,255,.06);background:linear-gradient(180deg, rgba(255,255,255,.01), rgba(255,255,255,.00));display:flex;flex-direction:column;height:100%}
+    .thumb{width:100%;height:160px;object-fit:cover;background:#071020}
+    .content{padding:14px;display:flex;flex-direction:column;flex:1}
+    .label{font-size:.78rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+    .name{margin:.25rem 0 .5rem;font-size:1.05rem;font-weight:800;color:var(--text)}
+    .desc{color:#cbd5e1;font-size:.95rem;margin:0 0 .9rem}
+    .meta{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:.86rem;margin-bottom:12px}
+    .pill{padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.06);background:rgba(255,255,255,.01)}
+
+    .actions{display:flex;gap:10px;align-items:center;margin-top:auto}
+    .cta{display:inline-flex;align-items:center;justify-content:center;height:var(--cta-height);min-width:var(--cta-min-width);padding:0 18px;border-radius:10px;border:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg, rgba(34,197,94,.18), rgba(34,197,94,.10));color:var(--text);text-decoration:none;font-weight:700;box-shadow:inset 0 0 0 1px rgba(34,197,94,.15);transition:transform .14s ease, box-shadow .14s ease;white-space:nowrap;box-sizing:border-box}
+    .cta.secondary{background:linear-gradient(180deg, rgba(96,165,250,.16), rgba(96,165,250,.08));box-shadow:inset 0 0 0 1px rgba(96,165,250,.12)}
+    .cta:hover{transform:translateY(-3px);box-shadow:0 18px 30px rgba(0,0,0,.25)}
+    .cta:focus{outline:none;box-shadow:0 0 0 4px var(--ring)}
+
+    @media (max-width:520px){
+      :root{--cta-min-width:unset}
+      .actions{justify-content:flex-start}
+      .cta{min-width:100%;height:44px}
+    }
+
+    .section-title{margin:26px 0 12px;font-size:1.15rem;font-weight:800;letter-spacing:.01em;color:var(--text)}
+    .note{border-left:3px solid var(--brand-2);padding:8px 12px;margin:16px 0;background:rgba(96,165,250,.04);border-radius:8px;color:var(--muted)}
+    iframe{border:none;border-radius:10px;width:100%;height:220px}
+
+    .whatsapp-bar{position:sticky;bottom:18px;display:flex;justify-content:center;margin-top:18px}
+    .whatsapp-bar a{display:inline-flex;gap:10px;align-items:center;padding:12px 16px;border-radius:999px;background:#25D366;color:#071b0a;text-decoration:none;font-weight:800;border:2px solid rgba(0,0,0,.08);box-shadow:0 14px 28px rgba(37,211,102,.2)}
+
+    footer{margin-top:26px;padding:18px;border-radius:12px;color:var(--muted);text-align:center}
+    .socials{display:flex;justify-content:center;gap:12px;margin-top:10px}
+    .social-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);color:var(--text);text-decoration:none;font-weight:700}
+    .social-icon{width:18px;height:18px;display:inline-block;vertical-align:middle}
+    .copyright{font-size:.9rem;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER -->
+    <header class="card header" role="banner">
+      <img class="avatar" src="imagens/carlos.png" alt="Foto do Carlos Henrique" />
+      <div class="title-block">
+        <h1 class="title">Carlos Henrique • Indicações Confiáveis</h1>
+        <p class="subtitle">Cursos online e produtos que eu uso e recomendo — suporte via WhatsApp.</p>
+        <div class="badges">
+          <span class="badge">🔥 Hotmart Afiliado</span>
+          <span class="badge">🛒 Shopee</span>
+          <span class="badge">✅ Suporte no WhatsApp</span>
+        </div>
+      </div>
+    </header>
+
+    <p class="note">"Aprendizado prático e acessível em cada produto."</p>
+
+    <!-- CURSOS (12) -->
+    <section id="cursos" aria-labelledby="titulo-cursos">
+      <h2 id="titulo-cursos" class="section-title">🎓 Cursos em destaque</h2>
+      <div class="grid grid-3">
+        <!-- 1 -->
+        <article class="item">
+          <img class="h" src="imagens/Imagem x8 (1).png" alt="Curso de informática" />
+          <div class="content">
+            <span class="label">Hotmart</span>
+            <h3 class="name">Curso de informática do básico ao avançado</h3>
+            <p class="desc">Aprenda do zero até a prática avançada.</p>
+            <div class="meta"><span class="pill">Acesso vitalício</span><span class="pill">Suporte</span><span class="pill">Certificado</span></div>
+            <div class="actions"><a class="cta track-link" data-id="curso1" href="https://go.hotmart.com/E82948485C?dp=1" target="_blank" rel="noopener">Quero acessar</a></div>
+          </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="item">
+          <img class="height" src="imagens/images (4).jpg" alt="Workshop finanças para casais" />
+          <div class="content">
+            <span class="label">Hotmart</span>
+            <h3 class="name">Workshop finanças para casais</h3>
+            <p class="desc">"conquistem juntos equilíbrio e prosperidade.".</p>
+            <div class="meta"><span class="pill">Comunidade</span><span class="pill">Passo a passo</span><span class="pill">Atualizações</span></div>
+            <div class="actions"><a class="cta track-link" data-id="curso2" href="https://go.hotmart.com/T101125318W?ap=7225" target="_blank" rel="noopener">Quero acessar</a></div>
+          </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="item">
+          <img class="height"src="imagens/office9.png" alt="Pacote Office + Power BI" />
+          <div class="content">
+            <span class="label">Hotmart</span>
+            <h3 class="name">Pacote Office </h3>
+            <p class="desc">Domine planilhas e dashboards.</p>
+            <div class="meta"><span class="pill">Conteúdo prático</span><span class="pill">Bônus</span><span class="pill">Garantia</span></div>
+            <div class="actions"><a class="cta track-link" data-id="curso3" href="https://go.hotmart.com/P82953696C?dp=1" target="_blank" rel="noopener">Quero acessar</a></div>
+          </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="item">
+          <img class="height"src="imagens/maestria2.png" alt="Maestria emocional" />
+          <div class="content">
+            <span class="label">Hotmart</span>
+            <h3 class="name">Maestria Emocional</h3>
+            <p class="desc"> "Desenvolva o autoconhecimento, domine suas emoções e transforme a sua vida com inteligência e equilíbrio." .</p>
+            <div class="meta"><span class="pill">Tráfego pago</span><span class="pill">Orgânico</span></div>
+            <div class="actions"><a class="cta track-link" data-id="curso4" href="https://go.hotmart.com/D101649259S?dp=1" target="_blank" rel="noopener">Quero acessar</a></div>
+          </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="item">
+          <img class="height" src="imagens/vet.png" alt="Auxiliar de veterinário" />
+          <div class="content">
+            <span class="label">Hotmart</span>
+            <h3 class="name">Auxiliar de veterinário</h3>
+            <p class="desc">Transforme sua paixão por animais em carreira, abra as portas para o seu futuro profissional com o Curso de Auxiliar Veterinário!.</p>
+            <div class="meta"><span class="pill">Aulas práticas</span><span class="pill">Suporte</span></div>
+            <div class="actions"><a class="cta track-link" data-id="curso5" href="https://go.hotmart.com/R101650249H?dp=1" target="_blank" rel="noopener">Quero acessar</a></div>
+          </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="item">
+          <img class="height" src="imagens/ecxbi.jpg" alt="Excel+ Power BI" />
+          <div class="content">
+            <span class="label">Hotmart</span>
+            <h3 class="name">Excel+ Power BI</h3>
+            <p class="desc">"Aprenda Excel e Power BI para se destacar no mercado."</p>
+            <div class="meta"><span class="pill">Google Ads</span><span class="pill">Facebook Ads</span></div>
+            <div class="actions"><a class="cta track-link" data-id="curso6" href="https://go.hotmart.com/Y101497743S?dp=1" target="_blank" rel="noopener">Quero acessar</a></div>
+          </div>
+        </article>
+
+        <!-- 7 -->
+        <article class="item">
+          <img class="height" src="imagens/mkt.png" alt="Marketing digital" />
+          <div class="content">
+            <span class="label">Hotmart</span>
+            <h3 class="name">Marketing digital </h3>
+            <p class="desc">"Aprenda Marketing Digital e conquiste clientes todos os dias."</p>
+            <div class="meta"><span class="pill">Photoshop</span><span class="pill">Illustrator</span></div>
+            <div class="actions"><a class="cta track-link" data-id="curso7" href="https://go.hotmart.com/R101653658Y" target="_blank" rel="noopener">Quero acessar</a></div>
+          </div>
+        </article>
+
+        <!-- 8 -->
+        <article class="item">
+          <img class="height" src="imagens/lideranc.png" alt="Gestão de liderança" />
+          <div class="content">
+            <span class="label">Hotmart</span>
+            <h3 class="name">Gestão de  pessoas e liderança</h3>
+            <p class="desc">"Aprenda a liderar equipes com confiança e resultados.".</p>
+            <div class="meta"><span class="pill">Prática</span><span class="pill">Edição</span></div>
+            <div class="actions"><a class="cta track-link" data-id="curso8" href="https://go.hotmart.com/X101653733U" target="_blank" rel="noopener">Quero acessar</a></div>
+          </div>
+        </article>
+
+        <!-- 9 -->
+        <article class="item">
+          <img class="tumb" src="imagens/edu.png" alt="Culinária Fácil e Rápida" />
+          <div class="content">
+            <span class="label">Hotmart</span>
+            <h3 class="name">Educação financeira</h3>
+            <p class="desc">"Aprenda a organizar suas finanças e investir com segurança."</p>
+            <div class="meta"><span class="pill">Ebook bônus</span><span class="pill">Receitas fit</span></div>
+            <div class="actions"><a class="cta track-link" data-id="curso9" href="https://go.hotmart.com/Q101653784E" target="_blank" rel="noopener">Quero acessar</a></div>
+          </div>
+        </article>
+
+        <!-- 10 -->
+        <article class="item">
+          <img class="height" src="imagens/python.png" alt="python" />
+          <div class="content">
+            <span class="label">Hotmart</span>
+            <h3 class="name">Python</h3>
+            <p class="desc">"Domine Python e destaque-se no mercado de tecnologia."</p>
+            <div class="meta"><span class="pill">Técnicas modernas</span><span class="pill">Exercícios práticos</span></div>
+            <div class="actions"><a class="cta track-link" data-id="curso10" href="https://go.hotmart.com/R101654335B" target="_blank" rel="noopener">Quero acessar</a></div>
+          </div>
+        </article>
+
+        <!-- 11 (extra) -->
+        <article class="item">
+          <img class="height" src="imagens/cad.png" alt="Vendas Online" />
+          <div class="content">
+            <span class="label">Hotmart</span>
+            <h3 class="name">Curso Online online de AutoCAD</h3>
+            <p class="desc">"Aprenda AutoCAD e transforme ideias em projetos reais."</p>
+            <div class="meta"><span class="pill">Estratégias atuais</span><span class="pill">Grupo de suporte</span></div>
+            <div class="actions"><a class="cta track-link" data-id="curso11" href="https://go.hotmart.com/E55580078H" target="_blank" rel="noopener">Quero acessar</a></div>
+          </div>
+        </article>
+
+        <!-- 12 (extra) -->
+        <article class="item">
+          <img class="height" src="imagens/exl.png" alt="Oratória" />
+          <div class="content">
+            <span class="label">Hotmart</span>
+            <h3 class="name">Curso de Excel</h3>
+            <p class="desc">"Domine o Excel do básico ao avançado e potencialize seu trabalho."</p>
+            <div class="meta"><span class="pill">Treinamentos práticos</span><span class="pill">Certificado incluso</span></div>
+            <div class="actions"><a class="cta track-link" data-id="curso12" href="https://go.hotmart.com/L55336354D" target="_blank" rel="noopener">Quero acessar</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PRODUTOS -->
+    <section id="produtos" aria-labelledby="titulo-produtos">
+      <h2 id="titulo-produtos" class="section-title">🛍️ Produtos que indico</h2>
+      <div class="grid grid-2">
+        <article class="item">
+          <img class="height" src="imagens/mercadolivre.png" alt="Produto 1" />
+          <div class="content">
+            <span class="label">Mercado livre</span>
+            <h3 class="name">Afiliado credenciado mercado livre</h3>
+            <p class="desc">Envio rápido e frete gratis a partis de R$19.</p>
+            <div class="meta"><span class="pill">Entrega rápida</span><span class="pill">Garantia</span></div>
+            <div class="actions"><a class="cta secondary track-link" data-id="ml1" href="https://mercadolivre.com/sec/2mGmAL4" target="_blank" rel="noopener">Ver oferta</a></div>
+          </div>
+        </article>
+        <article class="item">
+          <img class="height" src="imagens/download.jpg" alt="produto 2" />
+          <div class="content">
+            <span class="label">Shopee</span>
+            <h3 class="name">Afiliado credenciado shopee</h3>
+            <p class="desc">Aproveite frete gratis com cupom.</p>
+            <div class="meta"><span class="pill">Frete full</span><span class="pill">Avaliações altas</span></div>
+            <div class="actions"><a class="cta secondary track-link" data-id="ml2" href="https://s.shopee.com.br/1g8mbEm1AQ" target="_blank" rel="noopener">Ver oferta</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- WHATSAPP QUICK -->
+    <div class="whatsapp-bar">
+      <a class="track-link" data-id="whatsapp" href="https://wa.me/5533999164437?text=Ol%C3%A1%2C+vim+do+Instagram+e+quero+ajuda+com+as+indica%C3%A7%C3%B5es" target="_blank" rel="noopener">💬 Falar com o Carlos no WhatsApp</a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="copyright">© <span id="year"></span> Carlos Henrique — Indicações com transparência. <span id="totais"></span></div>
+      <div class="socials" aria-label="Redes sociais">
+        <a class="social-btn" href="https://instagram.com/seuinsta" target="_blank" rel="noopener">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="5" fill="currentColor" opacity="0"/><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z" stroke="currentColor" stroke-opacity=".9" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="currentColor" stroke-opacity=".9" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M17.5 6.5h.01" stroke="currentColor" stroke-opacity=".9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Instagram
+        </a>
+
+        <a class="social-btn" href="https://facebook.com/seufacebook" target="_blank" rel="noopener">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 12.07C22 6.61 17.52 2 12 2S2 6.61 2 12.07C2 17.08 5.66 21.25 10.44 21.98V14.9H7.9v-2.83h2.54V9.7c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.83h-2.34v7.09C18.34 21.25 22 17.08 22 12.07z" fill="currentColor" fill-opacity=".95"/></svg>
+          Facebook
+        </a>
+
+        <a class="social-btn" href="https://youtube.com/seucanal" target="_blank" rel="noopener">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23 7.5s-.2-1.7-.8-2.4c-.8-.9-1.7-.9-2.1-1C16.7 3.6 12 3.6 12 3.6h-.1s-4.7 0-7.9.5c-.4.1-1.3.1-2.1 1C1.2 5.8 1 7.5 1 7.5S.8 9.5.8 11.5v1c0 2 .2 4 2 4 1.1.3 6.9.6 9.2.6s6-.3 7.2-.6c1.8-.3 2-2 2-4v-1c0-2-.2-4-2-4z" stroke="currentColor" stroke-opacity=".95" stroke-width="0.6" fill="currentColor" fill-opacity=".03"/><path d="M9.75 15.02V8.98l5.5 3.02-5.5 3.02z" fill="currentColor" fill-opacity=".95"/></svg>
+          YouTube
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const UTM = new URLSearchParams({
+      utm_source: 'instagram',
+      utm_medium: 'bio',
+      utm_campaign: 'indicacoes'
+    });
+
+    function appendUTM(url){
+      try{
+        const u = new URL(url, window.location.href);
+        UTM.forEach((v,k)=>u.searchParams.set(k,v));
+        return u.toString();
+      }catch(e){ return url }
+    }
+
+    const storeKey = 'cliques_indicacoes_v2';
+    const clicks = JSON.parse(localStorage.getItem(storeKey) || '{}');
+
+    function saveClicks(){ localStorage.setItem(storeKey, JSON.stringify(clicks)); updateTotals(); }
+
+    document.querySelectorAll('a.track-link').forEach(a=>{
+      if(a.href) a.href = appendUTM(a.href);
+      a.addEventListener('click', ()=>{
+        const id = a.dataset.id || a.textContent.trim();
+        clicks[id] = (clicks[id]||0) + 1;
+        saveClicks();
+      });
+    });
+
+    function sum(obj){ return Object.values(obj).reduce((n,v)=>n+(+v||0),0); }
+    function updateTotals(){
+      const total = sum(clicks || {});
+      let el = document.getElementById('totais');
+      if(!el){
+        el = document.createElement('span');
+        el.id = 'totais';
+        el.style.marginLeft = '8px';
+        const parent = document.querySelector('footer .copyright');
+        if(parent) parent.appendChild(el);
+      }
+      el.textContent = total ? ` • Cliques nesta página: ${total}` : '';
+    }
+    updateTotals();
+  </script>
+</body>
+</html>
